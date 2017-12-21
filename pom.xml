@@ -212,7 +212,6 @@
             <target>${minSupportedJvmVersion}</target>
             <compilerArgs>
               <arg>-Xlint:all,-processing</arg>
-              <arg>-Werror</arg>
             </compilerArgs>
             <!--
                  Use these settings to show all deprecation

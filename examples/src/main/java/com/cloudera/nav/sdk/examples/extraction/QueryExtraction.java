@@ -453,7 +453,7 @@ public class QueryExtraction {
       LOG.info("Processed {} operation executions", index);
 
       String entityIds = Joiner.on(",").join(partition);
-      String relationsQuery = "type:INSTANCE_OF AND {!terms f=endpoint2Ids}" + entityIds + ",dummy";
+      String relationsQuery = "type:INSTANCE_OF AND ({!terms f=ep2Ids}" + entityIds + ")";
       resultSet = extractor.extractMetadata(null, null, null, relationsQuery);
       iterator = resultSet.getRelations().iterator();
       while(iterator.hasNext()) {
@@ -489,7 +489,7 @@ public class QueryExtraction {
 
       // Get the operation Ids now.
       String entityIds = Joiner.on(",").join(partition);
-      entityQuery = "{!terms f=identity}" + entityIds + ",dummy";
+      entityQuery = "({!terms f=id}" + entityIds + ")";
       resultSet = extractor.extractMetadata(null, null, entityQuery, null);
       iterator = resultSet.getEntities().iterator();
       while(iterator.hasNext()) {
